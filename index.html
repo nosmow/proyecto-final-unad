@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Gestión de Inventario</h1>
+
+        <!-- Botón para agregar productos -->
+        <div class="d-flex justify-content-center mt-4 mb-4">
+            <div class="m-2 text-end">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Agregar Producto</button>
+            </div>
+
+            <div class="m-2 text-end">
+                <a class="btn btn-primary" href="./search.html">Vender Producto</a>
+            </div>
+
+            <div class="m-2 text-end">
+                <a class="btn btn-primary" href="./report.html">Reporte de Stock</a>
+            </div>
+
+            <div class="m-2 text-end">
+                <a class="btn btn-primary" href="./sales.html">Reporte de Ventas</a>
+            </div>
+        </div>
+        
+
+        <!-- Tabla de productos -->
+        <h2>Inventario</h2>
+        <table class="table table-striped" id="productTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- Modales -->
+        <!-- Modal para agregar productos -->
+        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProductModalLabel">Agregar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addProductForm">
+                            <div class="mb-3">
+                                <label for="productName" class="form-label">Nombre del Producto</label>
+                                <input type="text" id="productName" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productQuantity" class="form-label">Cantidad</label>
+                                <input type="number" id="productQuantity" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productPrice" class="form-label">Precio</label>
+                                <input type="number" id="productPrice" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productImage" class="form-label">Imagen</label>
+                                <input type="file" id="productImage" class="form-control" accept="image/*" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para modificar productos -->
+        <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProductModalLabel">Modificar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editProductForm">
+                            <input type="hidden" id="editProductIndex">
+                            <div class="mb-3">
+                                <label for="editProductName" class="form-label">Nombre del Producto</label>
+                                <input type="text" id="editProductName" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProductQuantity" class="form-label">Cantidad</label>
+                                <input type="number" id="editProductQuantity" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProductPrice" class="form-label">Precio</label>
+                                <input type="number" id="editProductPrice" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProductImage" class="form-label">Imagen</label>
+                                <input type="file" id="editProductImage" class="form-control" accept="image/*">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
